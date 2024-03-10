@@ -16,7 +16,7 @@ export const BannerScreen = () => {
 
     return (
 
-        <Grid container sx={{background:'#0C1726', minHeight:'100vh', pt:30, px:10, display:'flex', flexDirection:'column'}}>
+        <Grid container sx={{background:'#0C1726', minHeight:'90vh', pt:30, px:10, display:'flex', flexDirection:'column'}}>
             <Grid item xs={12}>
                 <Typography variant="h1">Lorem ipsum</Typography>
             </Grid>

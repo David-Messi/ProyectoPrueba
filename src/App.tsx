@@ -2,7 +2,7 @@
 import { AppTheme } from './theme/AppTheme';
 import { Toolbar } from '@mui/material';
 
-import { HeaderScreen, BannerScreen } from "./components"
+import { HeaderScreen, BannerScreen, Carrusel } from "./components"
 
 
 
@@ -18,9 +18,11 @@ export const App = () => {
       <HeaderScreen />
       <Toolbar />
 
-
-
       <BannerScreen />
+
+      <Carrusel />
+
+      
     </AppTheme>
 
   )
