@@ -1,6 +1,7 @@
 
+import { useState } from "react";
 
-import { Autocomplete, Button, Checkbox, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography, styled } from "@mui/material";
+import { Autocomplete, Button, Checkbox, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography } from "@mui/material";
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
@@ -9,24 +10,43 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
-const CustomInput = styled(TextField)(({ theme }:any) => ({
-    '& label.Mui-InputLabel-root': {
-      color: theme.palette.common.white, 
-    },
-    '& .MuiInputBase-input': {
-      color: theme.palette.common.white, 
-      backgroundColor: theme.palette.background.paper, 
-    },
-    '& .MuiInputBase-root': {
-      borderColor: 'transparent',
-    },
-  }));
-
 
 
 export const FormularioScreen = () => {
 
     const opciones = ['Opcion 1', 'Opcion 2', 'Opcion 3', 'Opcion 4', 'Opcion 5', 'Opcion 6', 'Opcion 7'];
+
+
+    const [form, setForm] = useState<any>({multiple: [], radio: '', nombre: '', email: '', texto:'' });
+    const { multiple, radio, nombre, email, texto } = form;
+
+
+    const onChangeInput = ({ target }:any) => {
+        setForm({
+            ...form,
+            [target.name]: target.value
+        });
+    }
+
+
+    const onChangeMultiple = (valor:any) => {
+        const selectedValues = new Set(valor); 
+        const updatedArray = Array.from(selectedValues);
+        setForm({
+            ...form,
+            multiple: updatedArray,
+        });
+    }
+
+
+    const handleEnviarInfo = () => {
+        console.log({ form });
+
+        setForm({multiple:[], radio: '', nombre: '', email: '', texto:''});
+    }
+
+
+
 
     return (
 
@@ -36,7 +56,8 @@ export const FormularioScreen = () => {
             <Grid item xs={12} sm={6} md={4}>
                 <Autocomplete
                     multiple
-                    id="checkboxes-tags-demo"
+                    value={opciones.filter((option:any) => multiple.includes(option))}
+                    onChange={ (_, newValor) => onChangeMultiple(newValor) }
                     options={opciones}
                     disableCloseOnSelect
                     getOptionLabel={(option) => option}
@@ -59,8 +80,14 @@ export const FormularioScreen = () => {
 
             <Grid item xs={12} sm={6} md={4} sx={{display:'flex', justifyContent:'center', width:'100%'}}>
                 <FormControl sx={{mt:-1}}>
-                    {/* <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel> */}
-                    <RadioGroup aria-labelledby="demo-radio-buttons-group-label">
+                    <FormLabel>
+                        <Typography variant="h3" sx={{color:'black', fontWeight:'bold'}}>Opciones</Typography>
+                    </FormLabel>
+                    <RadioGroup 
+                        name="radio"
+                        value={ radio }
+                        onChange={ onChangeInput }
+                    >
                         {opciones.map( item => (
                             <FormControlLabel value={item} key={item} control={<Radio />} label={item} />
                         ))
@@ -74,11 +101,17 @@ export const FormularioScreen = () => {
                 <TextField label="Nombre" 
                     variant="outlined" 
                     fullWidth
+                    name="nombre"
+                    value={ nombre }
+                    onChange={ onChangeInput }
                 />
                 <TextField label="Email" 
                     sx={{mt:2}}
                     variant="outlined" 
                     fullWidth
+                    name="email"
+                    value={ email }
+                    onChange={ onChangeInput }
                 />
 
                 <TextField 
@@ -88,18 +121,15 @@ export const FormularioScreen = () => {
                     fullWidth
                     multiline
                     rows={3}
+                    name="texto"
+                    value={ texto }
+                    onChange={ onChangeInput }
                 />
 
-
-                <Button variant="contained" color="secondary" sx={{mt:2}}>
+                <Button variant="contained" color="secondary" sx={{mt:2}} onClick={ handleEnviarInfo }>
                     <Typography sx={{color:'white'}}>Submit</Typography>
                 </Button>
             </Grid>
-
         </Grid>
-        
-
     )
-
-
 }

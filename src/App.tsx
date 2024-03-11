@@ -1,8 +1,8 @@
 
 import { AppTheme } from './theme/AppTheme';
-import { Toolbar } from '@mui/material';
 
-import { HeaderScreen, BannerScreen, Carrusel, FormularioScreen } from "./components"
+import { HeaderScreen, BannerScreen, Carrusel, FormularioScreen, FooterScreen } from "./components"
+import { Toolbar } from '@mui/material';
 
 
 
@@ -20,11 +20,14 @@ export const App = () => {
 
       <BannerScreen />
 
+
       <Carrusel />
 
 
       <FormularioScreen />
 
+
+      <FooterScreen />
 
     </AppTheme>
 

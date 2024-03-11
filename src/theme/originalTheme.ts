@@ -30,27 +30,16 @@ export const originalTheme = createTheme({
                     fontWeight:300,
                     color:'white'
                 },
-                // h4: {
-                //     fontSize: 22,
-                //     fontWeight: 'bold',
-                //     fontFamily: 'arial',
-                // },
-                // h5: {
-                //     fontSize: 16,
-                //     fontFamily: 'arial',
-                //     color: 'white',
-                // },
-
-                // h6: {
-                //     fontSize: 17,
-                //     fontFamily: 'arial',
-                //     color: '#C4C4C4'
-                // },
-                
-                // body2: {
-                //     fontSize: 15,
-                //     fontFamily: 'arial'
-                // },
+                h4: {
+                    fontSize: 18,
+                    fontWeight: '300',
+                    color: 'white',
+                },
+                h5: {
+                    fontSize: 15,
+                    color: 'white',
+                    fontWeight: '300',
+                },
             }
         }
     }

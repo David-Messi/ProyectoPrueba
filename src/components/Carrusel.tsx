@@ -6,7 +6,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation } from "swiper/modules";
+
 
 
 
@@ -20,39 +21,41 @@ export const Carrusel = () => {
 
     return (
 
-        <Grid container sx={{width:'100%', display:'flex', justifyContent:'center', background:'#0C1726', pb:4, px:10}}>
+        <Grid container sx={{width:'100%', display:'flex', justifyContent:'center', background:'#0C1726', pb:7}}>
             <Grid container sx={{width:'100%', px:2}}>
 
                 <Box sx={{width:'100%', minHeight:'100px'}}>
-                    {/* <CardContent> */}
                     <div>
                         <Swiper
                             // slidesPerView={3}
                             // spaceBetween={20}
-                            loop={true}
-                            navigation={true}
-                            pagination={{ clickable: true }}
                             slidesPerView={1}
                             spaceBetween={10}
+                            loop={true}
+                            pagination={{ clickable: true }}
+                            navigation={true}
+                            modules={[Pagination, Navigation]}
                             breakpoints={{
+                            450: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
                             640: {
                                 slidesPerView: 2,
                                 spaceBetween: 20,
                             },
                             768: {
                                 slidesPerView: 4,
-                                spaceBetween: 40,
+                                spaceBetween: 20,
                             },
                             1024: {
                                 slidesPerView: 5,
-                                spaceBetween: 50,
+                                spaceBetween: 20,
                             },
                             }}
-                            modules={[Pagination]}
                             className="mySwiper"
                         >
-                            {
-                            conteo.map( t => (
+                            {conteo.map( t => (
                                 <SwiperSlide className="card-carrusel" key={t}>
                                     <div className="container-carrusel">
                                         <div className="imagen-carrusel" >

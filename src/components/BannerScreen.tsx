@@ -16,7 +16,7 @@ export const BannerScreen = () => {
 
     return (
 
-        <Grid container sx={{background:'#0C1726', minHeight:'90vh', pt:30, px:10, display:'flex', flexDirection:'column'}}>
+        <Grid container sx={{background:'#0C1726', minHeight:'80vh', pt:30, px:10, display:'flex', flexDirection:'column'}}>
             <Grid item xs={12}>
                 <Typography variant="h1">Lorem ipsum</Typography>
             </Grid>
@@ -29,7 +29,7 @@ export const BannerScreen = () => {
                 <Typography variant="h3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quod, adipisci quae perspiciatis vitae officia modi optio molestiae laborum, possimus nemo consectetur non? Perferendis rem architecto, odio veritatis nisi quae?</Typography>
             </Grid>
 
-            <Grid item xs={12} mt={7}>
+            <Grid item xs={12} mt={7} mb={5}>
                 <Button variant="contained" color="secondary" onClick={ handleBanner }>
                     <Typography sx={{color:'white'}}>Get there...</Typography>
                 </Button>
