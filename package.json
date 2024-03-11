@@ -1,6 +1,7 @@
 {
   "name": "proyecto",
   "private": true,
+  "homepage": "https://github.com/David-Messi/ProyectoPrueba/build",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
